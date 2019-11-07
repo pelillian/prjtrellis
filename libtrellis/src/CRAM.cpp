@@ -1,6 +1,7 @@
 #include "CRAM.hpp"
 #include <cassert>
 #include <stdexcept>
+#include <iostream>
 
 namespace Trellis {
 char &CRAMView::bit(int frame, int bit) const {
@@ -71,6 +72,14 @@ int CRAM::bits() const { return int(data->at(0).size()); }
 
 CRAMView CRAM::make_view(int frame_offset, int bit_offset, int frame_count, int bit_count) {
     return CRAMView(data, frame_offset, bit_offset, frame_count, bit_count);
+}
+
+void CRAM::load_ndarray(const np::ndarray &data_array) {
+    if(data_array.get_data() == nullptr){
+        std::cout << "Data was null" << std::endl;
+    } else {
+        std::cout << "Data was found at " << static_cast<void*>(data_array.get_data()) << std::endl;
+    }
 }
 
 }

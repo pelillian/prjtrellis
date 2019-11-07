@@ -4,6 +4,9 @@
 #include <cstdint>
 #include <memory>
 #include <vector>
+#include <boost/python/numpy.hpp>
+
+namespace np = boost::python::numpy;
 
 using namespace std;
 namespace Trellis {
@@ -77,6 +80,9 @@ public:
 
     // Return number of bits per frame in CRAM
     int bits() const;
+
+    // Load a numpy array into memory
+    void load_ndarray(const np::ndarray &data_array);
 
     // Make a view to the CRAM given frame and bit offset; and frames and bits per frame in the view
     CRAMView make_view(int frame_offset, int bit_offset, int frame_count, int bit_count);

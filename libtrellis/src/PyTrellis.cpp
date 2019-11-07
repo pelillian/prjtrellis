@@ -171,7 +171,8 @@ BOOST_PYTHON_MODULE (pytrellis)
             .def("set_bit", &CRAM::set_bit)
             .def("bits", &CRAM::bits)
             .def("frames", &CRAM::frames)
-            .def("make_view", &CRAM::make_view);
+            .def("make_view", &CRAM::make_view)
+            .def("load_ndarray", &CRAM::load_ndarray);
 
     class_<CRAMDelta>("CRAMDelta")
             .def(vector_indexing_suite<CRAMDelta>());
