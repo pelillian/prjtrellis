@@ -74,12 +74,22 @@ CRAMView CRAM::make_view(int frame_offset, int bit_offset, int frame_count, int 
     return CRAMView(data, frame_offset, bit_offset, frame_count, bit_count);
 }
 
-void CRAM::load_ndarray(const np::ndarray &data_array) {
+bool CRAM::load_ndarray(const np::ndarray &data_array) const {
+
     if(data_array.get_data() == nullptr){
         std::cout << "Data was null" << std::endl;
+        return false;
     } else {
         std::cout << "Data was found at " << static_cast<void*>(data_array.get_data()) << std::endl;
     }
+
+    for(int i = 0; i < frames(); i++){
+        for(int j = 0; j < bits(); j++){
+            data->at(i)[j] = data_array.get_data()[i*bits()+j];
+        }
+    }
+
+    return true;
 }
 
 }
