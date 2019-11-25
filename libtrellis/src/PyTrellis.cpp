@@ -138,6 +138,7 @@ BOOST_PYTHON_MODULE (pytrellis)
             .def("get_tiles_by_position", &Chip::get_tiles_by_position)
             .def("get_tiles_by_type", &Chip::get_tiles_by_type)
             .def("get_all_tiles", &Chip::get_all_tiles)
+            .def("swap_tiles", &Chip::swap_tiles) // Added by Chengyi (Jeff) Chen 
             .def("get_max_row", &Chip::get_max_row)
             .def("get_max_col", &Chip::get_max_col)
             .def("get_routing_graph", &Chip::get_routing_graph)

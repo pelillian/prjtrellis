@@ -86,6 +86,17 @@ vector<shared_ptr<Tile>> Chip::get_all_tiles()
     return result;
 }
 
+/*
+  By: Chengyi (Jeff) Chen
+  Purpose: To swap all tiles from current
+*/
+void Chip::swap_tiles(string name, Chip &other_chip)
+{
+    auto temp = other_chip.tiles.at(name);
+    other_chip.tiles[name] = tiles.at(name);
+    tiles[name] = temp;
+}
+
 int Chip::get_max_row() const
 {
     return info.max_row;

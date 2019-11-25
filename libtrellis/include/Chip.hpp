@@ -123,6 +123,12 @@ public:
 
     vector<shared_ptr<Tile>> get_all_tiles();
 
+    /*
+      By: Chengyi (Jeff) Chen
+      Purpose: To swap all tiles from current
+    */
+    void swap_tiles(string name, Chip &other_chip);
+
     string get_tile_by_position_and_type(int row, int col, string type);
 
     string get_tile_by_position_and_type(int row, int col, set<string> type);
